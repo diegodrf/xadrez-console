@@ -13,7 +13,7 @@ namespace xadrez_console.tabuleiro
         public int QuantidadeDeMovimentos { get; protected set; }
         public Tabuleiro Tabuleiro { get; protected set; }
 
-        public Peca(Cor cor, Tabuleiro tabuleiro)
+        public Peca(Tabuleiro tabuleiro, Cor cor)
         {
             Cor = cor;
             QuantidadeDeMovimentos = 0;
