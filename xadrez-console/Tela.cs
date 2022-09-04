@@ -11,14 +11,12 @@ namespace xadrez_console
     {
         public static void ImprimirTabuleiro(Tabuleiro tabuleiro)
         {
-            for(var linha=0; linha < tabuleiro.Linhas; linha++)
+            for (var linha = 0; linha < tabuleiro.Linhas; linha++)
             {
-                for(var coluna=0; coluna<tabuleiro.Colunas; coluna++)
+                for (var coluna = 0; coluna < tabuleiro.Colunas; coluna++)
                 {
                     var peca = tabuleiro.Peca(linha, coluna);
-                    if (peca is null)
-                        Console.Write("- ");
-                    Console.Write($"{peca} ");
+                    Console.Write(peca is null ? "- " : $"{peca} ");
                 }
                 Console.WriteLine();
             }
