@@ -10,7 +10,7 @@ namespace xadrez_console.tabuleiro
     {
         public int Linhas { get; set; }
         public int Colunas { get; set; }
-        private readonly Peca[,] _pecas;
+        private readonly Peca?[,] _pecas;
 
         public Tabuleiro(int linhas, int colunas)
         {
@@ -19,12 +19,12 @@ namespace xadrez_console.tabuleiro
             _pecas = new Peca[linhas, colunas];
         }
 
-        public Peca Peca(int linha, int coluna)
+        public Peca? Peca(int linha, int coluna)
         {
             return _pecas[linha, coluna];
         }
 
-        public Peca Peca(Posicao posicao)
+        public Peca? Peca(Posicao posicao)
         {
             return _pecas[posicao.linha, posicao.coluna];
         }
@@ -37,6 +37,18 @@ namespace xadrez_console.tabuleiro
             }
             _pecas[posicao.linha, posicao.coluna] = peca;
             peca.Posicao = posicao;
+        }
+
+        public Peca? RetirarPeca(Posicao posicao)
+        {
+            if (Peca(posicao) is null)
+            {
+                return null;
+            }
+            var peca = Peca(posicao);
+            peca!.Posicao = null;
+            _pecas[posicao.linha, posicao.coluna] = null;
+            return peca;
         }
 
         public bool PosicaoValida(Posicao posicao)
