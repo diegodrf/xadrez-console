@@ -17,12 +17,35 @@ namespace xadrez_console
                 for (var coluna = 0; coluna < tabuleiro.Colunas; coluna++)
                 {
                     var peca = tabuleiro.Peca(linha, coluna);
-                    Console.Write(peca is null ? "- " : $"{peca} ");
+                    if (peca is null)
+                    {
+                        Console.Write("- ");
+                    }
+                    else
+                    {
+                        ImprimirPeca(peca);
+                        Console.Write(" ");
+                    }
                 }
                 Console.WriteLine();
             }
             Console.Write("  a b c d e f g h ");
             Console.WriteLine();
+        }
+
+        public static void ImprimirPeca(Peca peca)
+        {
+            if (peca.Cor == Cor.Branca)
+            {
+                Console.Write(peca);
+            }
+            else
+            {
+                var currentColor = Console.ForegroundColor;
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write(peca);
+                Console.ForegroundColor = currentColor;
+            }
         }
     }
 }
