@@ -13,6 +13,7 @@ namespace xadrez_console
         {
             for (var linha = 0; linha < tabuleiro.Linhas; linha++)
             {
+                Console.Write($"{8 - linha} ");
                 for (var coluna = 0; coluna < tabuleiro.Colunas; coluna++)
                 {
                     var peca = tabuleiro.Peca(linha, coluna);
@@ -20,6 +21,8 @@ namespace xadrez_console
                 }
                 Console.WriteLine();
             }
+            Console.Write("  a b c d e f g h ");
+            Console.WriteLine();
         }
     }
 }
